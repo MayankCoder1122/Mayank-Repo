@@ -1,24 +1,43 @@
-//WAP to get 10 elements in an array and print all the elements on separate line.
 
 
 #include <stdio.h>
 
 int main()
 {
-   int a[10],i;
-   
-   printf("Enter 10 values :\n");
-   
-   for(i=0;i<=9;i++)
-   {
-       printf("Enter value at %d position : ",i+1);
-       scanf("%d",&a[i]);
-   }
-   printf("\nYou have entered :\n");
-   for(i=0;i<10;i++)
-   {
-       printf("%d\n",a[i]);
-   }
+    int a[9]={11,12,13,14,15,16,17,18,19};
+    int low=0,high=8;
+    int key,mid;
+    int flag=0;
+    
+    printf("Enter the number to search: ");
+    scanf("%d",&key);
+    
+    while(low<=high)
+    {
+       mid=(low+high)/2;
+       if(key==a[mid])
+       {
+           flag=1;
+           break;
+       }
+       else if(key>a[mid])
+       {
+           low=mid+1;
+       }
+       else
+       {
+           high=mid-1;
+       }
+    }
+    if(flag==1)
+    {
+        printf("Number %d found at %d position.\n",key,mid+1);
+    }
+    else
+    {
+         printf("Number %d does not exist in the array.\n",key);
+    }
+    
 
     return 0;
 }
